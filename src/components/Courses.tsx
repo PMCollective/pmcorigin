@@ -10,7 +10,7 @@ const courses = [
     description: "Learn AI Product management by building and launching your own AI Product with no-code tools and AI processes.",
     duration: "6 Weeks",
     frequency: "8-10 hrs/week",
-    startDate: "June 7, 2025",
+    startDate: "August 2, 2025",
     format: "Online",
     enroll: true,
     link: "https://razorpay.me/@pmcollective",
@@ -146,7 +146,7 @@ export  function Courses() {
   Start Now
 </a>
             <span className="text-sm sm:text-base opacity-80 text-center">
-              ⏱️ Next batch starting June 7
+              ⏱️ Next batch starting August 2
             </span>
           </div>
 
@@ -155,7 +155,7 @@ export  function Courses() {
             {[
               { icon: <Calendar size={16} className="sm:w-5 sm:h-5" />, label: "6 Weeks", value: "Duration" },
               { icon: <Clock size={16} className="sm:w-5 sm:h-5" />, label: "8-10 hrs/week", value: "Time Commitment" },
-              { icon: <Calendar size={16} className="sm:w-5 sm:h-5" />, label: "June 7, 2025", value: "Start Date" },
+              { icon: <Calendar size={16} className="sm:w-5 sm:h-5" />, label: "August 2, 2025", value: "Start Date" },
               { icon: <Globe size={16} className="sm:w-5 sm:h-5" />, label: "Online", value: "Format" }
             ].map((stat, index) => (
               <div key={index} className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 lg:p-6 rounded-xl text-center">
