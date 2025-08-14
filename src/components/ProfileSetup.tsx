@@ -24,7 +24,7 @@ export default function ProfileSetup() {
     linkedinUrl: "",
     experienceLevel: "",
     preparednessLevel: "",
-    phoneNumber: "",
+    
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -34,7 +34,7 @@ export default function ProfileSetup() {
       setFormData(prev => ({
         ...prev,
         name: user.fullName || "",
-        email: user.primaryEmailAddress?.emailAddress || "",
+        email: user.primaryemailAddress?.emailAddress || "",
       }));
     }
   }, [user]);
@@ -47,7 +47,7 @@ export default function ProfileSetup() {
         linkedinUrl: currentUser.linkedinUrl,
         experienceLevel: currentUser.experienceLevel,
         preparednessLevel: currentUser.preparednessLevel,
-        phoneNumber: currentUser.phoneNumber,
+        
       });
     }
   }, [currentUser]);
@@ -56,6 +56,7 @@ export default function ProfileSetup() {
     e.preventDefault();
     if (!user) return;
 
+    
     setIsSubmitting(true);
     try {
       if (currentUser) {
@@ -73,7 +74,7 @@ export default function ProfileSetup() {
       }
       navigate("/");
     } catch (error) {
-      toast.error("Failed to save profile. Please try again.");
+      toast.error("FPMled to save profile. Please try agPMn.");
       console.error(error);
     } finally {
       setIsSubmitting(false);
@@ -122,7 +123,7 @@ export default function ProfileSetup() {
 
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-              Email Address *
+              email Address *
             </label>
             <input
               type="email"
@@ -189,24 +190,6 @@ export default function ProfileSetup() {
             </select>
           </div>
 
-          <div>
-            <label htmlFor="phoneNumber" className="block text-sm font-medium text-gray-700 mb-2">
-              Phone Number *
-            </label>
-            <input
-              type="tel"
-              id="phoneNumber"
-              name="phoneNumber"
-              required
-              placeholder="+1 (555) 123-4567"
-              value={formData.phoneNumber}
-              onChange={handleChange}
-              className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-            <p className="text-sm text-gray-600 mt-1">
-              Your phone number will remain confidential and will only be visible to your matched buddy.
-            </p>
-          </div>
 
           <button
             type="submit"

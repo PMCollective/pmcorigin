@@ -38,7 +38,7 @@ export default function BuddyDiscovery() {
       });
       toast.success("Buddy request sent!");
     } catch (error: any) {
-      toast.error(error.message || "Failed to send request");
+      toast.error(error.message || "FPMled to send request");
     } finally {
       setSendingRequest(null);
     }

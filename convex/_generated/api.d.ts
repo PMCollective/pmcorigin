@@ -15,8 +15,11 @@ import type {
 } from "convex/server";
 import type * as auth from "../auth.js";
 import type * as buddyRequests from "../buddyRequests.js";
+import type * as crons from "../crons.js";
+import type * as events from "../events.js";
 import type * as http from "../http.js";
 import type * as messages from "../messages.js";
+import type * as registrations from "../registrations.js";
 import type * as router from "../router.js";
 import type * as users from "../users.js";
 
@@ -31,8 +34,11 @@ import type * as users from "../users.js";
 declare const fullApi: ApiFromModules<{
   auth: typeof auth;
   buddyRequests: typeof buddyRequests;
+  crons: typeof crons;
+  events: typeof events;
   http: typeof http;
   messages: typeof messages;
+  registrations: typeof registrations;
   router: typeof router;
   users: typeof users;
 }>;

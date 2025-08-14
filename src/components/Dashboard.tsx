@@ -125,7 +125,7 @@ export default function Dashboard() {
                   <p className="text-sm text-gray-600">
                     {buddy.buddy?.experienceLevel} years • {buddy.buddy?.preparednessLevel}
                   </p>
-                  <p className="text-sm text-blue-600">📞 {buddy.buddy?.phoneNumber}</p>
+                  
                 </div>
                 <Link
                   to={`/chat/${buddy._id}`}

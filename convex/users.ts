@@ -9,7 +9,7 @@ export const createUser = mutation({
     linkedinUrl: v.string(),
     experienceLevel: v.string(),
     preparednessLevel: v.string(),
-    phoneNumber: v.string(),
+    
   },
   handler: async (ctx, args) => {
     // Check if user already exists
@@ -47,7 +47,7 @@ export const updateUser = mutation({
     linkedinUrl: v.string(),
     experienceLevel: v.string(),
     preparednessLevel: v.string(),
-    phoneNumber: v.string(),
+    
   },
   handler: async (ctx, args) => {
     const user = await ctx.db
@@ -65,12 +65,24 @@ export const updateUser = mutation({
       linkedinUrl: args.linkedinUrl,
       experienceLevel: args.experienceLevel,
       preparednessLevel: args.preparednessLevel,
-      phoneNumber: args.phoneNumber,
+      
     });
 
     return user._id;
   },
 });
+
+
+
+
+
+
+
+
+
+
+
+
 
 export const searchBuddies = query({
   args: {

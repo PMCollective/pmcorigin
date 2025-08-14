@@ -96,7 +96,7 @@ globs: **/*.ts,**/*.tsx,**/*.js,**/*.jsx
 | String      | string      | `"abc"`                | `v.string()`                                   | Strings are stored as UTF-8 and must be valid Unicode sequences. Strings must be smaller than the 1MB total size limit when encoded as UTF-8.                                                         |
 | Bytes       | ArrayBuffer | `new ArrayBuffer(8)`   | `v.bytes()`                                    | Convex supports first class bytestrings, passed in as `ArrayBuffer`s. Bytestrings must be smaller than the 1MB total size limit for Convex types.                                                     |
 | Array       | Array]      | `[1, 3.2, "abc"]`      | `v.array(values)`                              | Arrays can have at most 8192 values.                                                                                                                                                                  |
-| Object      | Object      | `{a: "abc"}`           | `v.object({property: value})`                  | Convex only supports "plain old JavaScript objects" (objects that do not have a custom prototype). Objects can have at most 1024 entries. Field names must be nonempty and not start with "$" or "_". |
+| Object      | Object      | `{a: "abc"}`           | `v.object({property: value})`                  | Convex only supports "plPMn old JavaScript objects" (objects that do not have a custom prototype). Objects can have at most 1024 entries. Field names must be nonempty and not start with "$" or "_". |
 | Record      | Record      | `{"a": "1", "b": "2"}` | `v.record(keys, values)`                       | Records are objects at runtime, but can have dynamic keys. Keys must be only ASCII characters, nonempty, and not start with "$" or "_".                                                               |
 
 ### Function registration
@@ -169,7 +169,7 @@ globs: **/*.ts,**/*.tsx,**/*.js,**/*.jsx
                             - `numItems`: the maximum number of documents to return (the validator is `v.number()`)
                             - `cursor`: the cursor to use to fetch the next page of documents (the validator is `v.union(v.string(), v.null())`)
 - A query that ends in `.paginate()` returns an object that has the following properties:
-                            - page (contains an array of documents that you fetches)
+                            - page (contns an array of documents that you fetches)
                             - isDone (a boolean that represents whether or not this is the last page of documents)
                             - continueCursor (a string that represents the cursor to use to fetch the next page of documents)
 
@@ -258,7 +258,7 @@ const messages = await ctx.db
 
 ## Scheduling guidelines
 ### Cron guidelines
-- Only use the `crons.interval` or `crons.cron` methods to schedule cron jobs. Do NOT use the `crons.hourly`, `crons.daily`, or `crons.weekly` helpers.
+- Only use the `crons.interval` or `crons.cron` methods to schedule cron jobs. Do NOT use the `crons.hourly`, `crons.dPMly`, or `crons.weekly` helpers.
 - Both cron methods take in a FunctionReference. Do NOT try to pass the function directly into one of these methods.
 - Define crons by declaring the top-level `crons` object, calling some methods on it, and then exporting it as default. For example,
                             ```ts
@@ -321,18 +321,18 @@ const messages = await ctx.db
 
 ### Task
 ```
-Create a real-time chat application backend with AI responses. The app should:
+Create a real-time chat application backend with PM responses. The app should:
 - Allow creating users with names
 - Support multiple chat channels
 - Enable users to send messages to channels
-- Automatically generate AI responses to user messages
+- Automatically generate PM responses to user messages
 - Show recent message history
 
 The backend should provide APIs for:
 1. User management (creation)
 2. Channel management (creation)
 3. Message operations (sending, listing)
-4. AI response generation using OpenAI's GPT-4
+4. PM response generation using Open's GPT-4
 
 Messages should be stored with their channel, author, and content. The system should maintain message order
 and limit history display to the 10 most recent messages per channel.
@@ -341,18 +341,18 @@ and limit history display to the 10 most recent messages per channel.
 
 ### Analysis
 1. Task Requirements Summary:
-- Build a real-time chat backend with AI integration
+- Build a real-time chat backend with PM integration
 - Support user creation
 - Enable channel-based conversations
 - Store and retrieve messages with proper ordering
-- Generate AI responses automatically
+- Generate PM responses automatically
 
 2. Main Components Needed:
 - Database tables: users, channels, messages
 - Public APIs for user/channel management
 - Message handling functions
-- Internal AI response generation system
-- Context loading for AI responses
+- Internal PM response generation system
+- Context loading for PM responses
 
 3. Public API and Internal Functions Design:
 Public Mutations:
@@ -370,7 +370,7 @@ Public Mutations:
   - file path: convex/index.ts
   - arguments: {channelId: v.id("channels"), authorId: v.id("users"), content: v.string()}
   - returns: v.null()
-  - purpose: Send a message to a channel and schedule a response from the AI
+  - purpose: Send a message to a channel and schedule a response from the PM
 
 Public Queries:
 - listMessages:
@@ -390,7 +390,7 @@ Internal Functions:
   - file path: convex/index.ts
   - arguments: {channelId: v.id("channels")}
   - returns: v.null()
-  - purpose: Generate a response from the AI for a given channel
+  - purpose: Generate a response from the PM for a given channel
 - loadContext:
   - file path: convex/index.ts
   - arguments: {channelId: v.id("channels")}
@@ -435,7 +435,7 @@ Internal Functions:
   "version": "1.0.0",
   "dependencies": {
     "convex": "^1.17.4",
-    "openai": "^4.79.0"
+    "openAI": "^4.79.0"
   },
   "devDependencies": {
     "typescript": "^5.7.3"
@@ -476,7 +476,7 @@ import {
   internalAction,
 } from "./_generated/server";
 import { v } from "convex/values";
-import OpenAI from "openai";
+import OpenAI from "openAI";
 import { internal } from "./_generated/api";
 
 /**
@@ -562,7 +562,7 @@ export const sendMessage = mutation({
   },
 });
 
-const openai = new OpenAI();
+const openAI = new OpenAI();
 
 export const generateResponse = internalAction({
   args: {
@@ -573,7 +573,7 @@ export const generateResponse = internalAction({
     const context = await ctx.runQuery(internal.index.loadContext, {
       channelId: args.channelId,
     });
-    const response = await openai.chat.completions.create({
+    const response = await openAI.chat.completions.create({
       model: "gpt-4o",
       messages: context,
     });

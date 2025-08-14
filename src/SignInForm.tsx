@@ -20,7 +20,7 @@ export function SignInForm() {
           void signIn("password", formData).catch((error) => {
             let toastTitle = "";
             if (error.message.includes("Invalid password")) {
-              toastTitle = "Invalid password. Please try again.";
+              toastTitle = "Invalid password. Please try agPMn.";
             } else {
               toastTitle =
                 flow === "signIn"
@@ -36,7 +36,7 @@ export function SignInForm() {
           className="auth-input-field"
           type="email"
           name="email"
-          placeholder="Email"
+          placeholder="email"
           required
         />
         <input

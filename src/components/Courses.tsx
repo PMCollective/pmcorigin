@@ -4,31 +4,31 @@ import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 const courses = [
   {
-    title: "AI Product Management Mastery",
+    title: "AI Accelerator Program",
     price: "₹19,999",
     originalPrice: "₹29,999",
-    description: "Learn AI Product management by building and launching your own AI Product with no-code tools and AI processes.",
+    description: "Learn AI skills by building and launching your own AI Product with no-code tools and AI processes.",
     duration: "6 Weeks",
     frequency: "8-10 hrs/week",
-    startDate: "August 2, 2025",
+    startDate: "August 16, 2025",
     format: "Online",
     enroll: true,
-    link: "https://razorpay.me/@pmcollective",
+    link: "https://docs.google.com/forms/d/e/1FPMpQLSc4m1DE_kYQiZDKyZrcCSFtw2RjIW-shzyeBixdtTMs_nh2rw/viewform",
     highlight: true,
     features: [
       "Duration: 6 weeks",
       "Live Weekly Bootcamp & Mentor",
       "Build Your Own AI Product",
-      "PM Coalition for AI Solutions",
-      "Build PM Framework Tools",
+      "Coalition for PAIM Solutions",
+      "Build AI Framework Tools",
       "AI Product Launch & Deployment"
     ]
   },
   {
-    title: "Advanced AI Product Leadership",
+    title: "Advanced AI Leadership",
     price: "₹29,999",
     originalPrice: "₹39,999",
-    description: "Advanced course focused on product leadership and strategy development with real-world applications.",
+    description: "Advanced course focused on AI leadership and strategy development with real-world applications.",
     duration: "8 Weeks",
     frequency: "10-12 hrs/week",
     startDate: "Coming Soon",
@@ -39,8 +39,8 @@ const courses = [
     features: [
       "Duration: 8 weeks",
       "Advanced AI Analytics",
-      "Strategy Development",
-      "AI Ethics & Governance",
+      "Strategy DeveloPMent",
+      "PM Ethics & Governance",
       "Team Leadership"
     ]
   },
@@ -48,63 +48,60 @@ const courses = [
 
 const curriculum = [
   {
-    title: "Foundations & Idea Clarity",
+    title: "Scoping the Right Problem (for AI to Solve)",
     topics: [
-      "From Idea, choose AI-no-code tools",
-      "AI Tool Assessment",
-      "User Research & Analysis",
-      "Types of PM Roles"
+      "What makes a 'good' AI problem?",
+      "Framing pain points → value propositions",
+      "Basics of user research (interviews, patterns, personas)",
+      "Real-world scoping examples from Ops, Sales, HR",
+      "Outcome: Learners define 1–2 AI-worthy problem statements"
     ]
   },
   {
-    title: "Discovery Mastery",
+    title: "Prompting Power – Thinking & Creating with AI",
     topics: [
-      "Solve your real-time User Story",
-      "User Research & UXD",
-      "Problem Statement",
-      "AI User & Interface Layer",
-      "Discovery Sprint Design"
+      "What is a prompt? Why prompt engineering matters",
+      "Structuring, refining, and chaining prompts",
+      "Hands-on: Writing prompts for documents, strategy, data summaries, personal use",
+      "Outcome: Learners become prompt-confident"
     ]
   },
   {
-    title: "Metrics → Strategy",
+    title: "Build Without Code — AI Workflows & Tools",
     topics: [
-      "MVP hypothesis review",
-      "North Star & Super Star Metrics",
-      "Product Strategy Framework",
-      "1 Year → OKRs | KPIs",
-      "Strategy → Product roadmap"
+      "Intro to no-code platforms: Lovable, Replit, N8N",
+      "Common use cases: process automation, dashboards, content generation",
+      "Hands-on: Build your own AI-powered mini-tool",
+      "Outcome: Learners create their first AI prototype"
     ]
   },
   {
-    title: "Tech Fluency",
+    title: "Agents & Chatbots — Building Dynamic AI Experiences",
     topics: [
-      "Prompt Engineering for PMs",
-      "APIs, DBs, prompts",
-      "ML & No-code/low",
-      "Vector Range, Diagrams for PMs"
+      "What are AI agents? What can they really do?",
+      "Tools like Cursor, Wispr Flow, Superhuman",
+      "Use cases: lead conversion, knowledge assistants, internal tools",
+      "Outcome: Learners build/configure an AI agent or chatbot"
     ]
   },
   {
-    title: "Brand & Resume Power",
+    title: "How AI Thinks — A Gentle Technical Deep Dive",
     topics: [
-      "PM Portfolio development",
-      "Career transitions",
-      "Resume & LinkedIn techniques",
-      "Job & Interviews as a PM"
+      "How LLMs work (in plain English)",
+      "Key terms: embeddings, tokens, vector databases, RAG, fine-tuning",
+      "When to use which: GPT vs. Claude vs. custom agents",
+      "Outcome: Participants feel confident talking about AI"
     ]
   },
   {
-    title: "Interview Bootcamp & Demo Day",
+    title: "AI for Career & Personal Leverage",
     topics: [
-      "Mock interviews",
-      "Product design, metrics, optimization",
-      "Strategy & behavioral prep",
-      "Build demo interviews"
+      "Build an AI-first resume / portfolio",
+      "Using AI for job search, outreach, and research",
+      "Productivity hacks: weekly planning, emails, docs, upskilling",
+      "Outcome: Learners develop a sharper digital presence and a career game plan"
     ]
   }
-
-  
 ];
 
 export  function Courses() {
@@ -114,7 +111,7 @@ export  function Courses() {
       <div className="flex items-center mb-6">
           <Link
             to="/"
-            className="text-gray-600 hover:text-gray-800 mr-4"
+            className="text-gray-600 mt-2 hover:text-gray-800 mr-4"
           >
             <ArrowLeft className="h-5 w-5" />
           </Link>
@@ -126,27 +123,27 @@ export  function Courses() {
             Course by MAANG
           </div>
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 leading-tight">
-            AI Product Management<br className="hidden sm:block" />
-            <span className="sm:hidden"> </span>Course
+            AI Accelerator Program<br className="hidden sm:block" />
+            <span className="sm:hidden"> </span>
           </h1>
           <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4 sm:mb-6 text-yellow-400">
             Build Real AI Products
           </h2>
           <p className="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 opacity-90 max-w-2xl mx-auto px-4">
-            Learn AI Product management by building and launching your own AI experience with no-code tools and AI processes.
+            Learn AI skills by building and launching your own PM experience with no-code tools and PM processes.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center mb-6 sm:mb-10 px-4">
             <a 
-  href="https://razorpay.me/@pmcollective"
+  href="https://forms.gle/eQnS7vo3HwvKdmr69"
   target="_blank"
   rel="noopener noreferrer"
   className="w-full sm:w-auto bg-yellow-400 text-slate-900 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-base sm:text-lg shadow-lg shadow-yellow-400/30 hover:shadow-xl transition-all duration-300"
 >
-  Start Now
+  Submit Interest
 </a>
             <span className="text-sm sm:text-base opacity-80 text-center">
-              ⏱️ Next batch starting August 2
+              ⏱️ Next batch starting August 16
             </span>
           </div>
 
@@ -155,7 +152,7 @@ export  function Courses() {
             {[
               { icon: <Calendar size={16} className="sm:w-5 sm:h-5" />, label: "6 Weeks", value: "Duration" },
               { icon: <Clock size={16} className="sm:w-5 sm:h-5" />, label: "8-10 hrs/week", value: "Time Commitment" },
-              { icon: <Calendar size={16} className="sm:w-5 sm:h-5" />, label: "August 2, 2025", value: "Start Date" },
+              { icon: <Calendar size={16} className="sm:w-5 sm:h-5" />, label: "August 16, 2025", value: "Start Date" },
               { icon: <Globe size={16} className="sm:w-5 sm:h-5" />, label: "Online", value: "Format" }
             ].map((stat, index) => (
               <div key={index} className="bg-white/10 backdrop-blur-sm p-3 sm:p-4 lg:p-6 rounded-xl text-center">
@@ -172,7 +169,7 @@ export  function Courses() {
       <div className="px-4 sm:px-6 lg:px-8 py-12 sm:py-16 lg:py-20 max-w-7xl mx-auto">
         <div className="text-center mb-8 sm:mb-12 lg:mb-16">
           <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mb-3 sm:mb-4">
-            Why Choose The PM Collective?
+            Why Choose The AI Collective?
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-slate-600 max-w-2xl mx-auto px-4">
             Build Real AI Products While Learning Product Management
@@ -183,23 +180,23 @@ export  function Courses() {
           {[
             {
               icon: <BookOpen className="w-8 h-8 sm:w-10 sm:h-10" />,
-              title: "Build Your Own AI Product",
-              description: "Create and launch your own AI product from ideation to deployment using cutting-edge no-code tools."
+              title: "Build Your Own PM Product",
+              description: "Create and launch your own PM product from ideation to deployment using cutting-edge no-code tools."
             },
             {
               icon: <Users className="w-8 h-8 sm:w-10 sm:h-10" />,
-              title: "Learn from AI Product Leaders",
-              description: "Get mentored by experienced AI product managers from top tech companies and startups."
+              title: "Learn from AI Leaders",
+              description: "Get mentored by experienced PM product managers from top tech companies and startups."
             },
             {
               icon: <Target className="w-8 h-8 sm:w-10 sm:h-10" />,
-              title: "Practical AI PM Skills",
-              description: "Master essential skills including prompt engineering, AI ethics, and product strategy."
+              title: "Practical AI Skills",
+              description: "Master essential skills including prompt engineering, PM ethics, and product strategy."
             },
             {
               icon: <Award className="w-8 h-8 sm:w-10 sm:h-10" />,
-              title: "No-Code AI Development",
-              description: "Learn to build AI products without coding using cutting-edge tools and platforms."
+              title: "No-Code PM DeveloPMent",
+              description: "Learn to build PM products without coding using cutting-edge tools and platforms."
             },
             {
               icon: <TrendingUp className="w-8 h-8 sm:w-10 sm:h-10" />,
@@ -209,7 +206,7 @@ export  function Courses() {
             {
               icon: <Star className="w-8 h-8 sm:w-10 sm:h-10" />,
               title: "Launch Your AI Product",
-              description: "Actually ship a working AI product to market with ongoing support and guidance."
+              description: "Actually ship a working PM product to market with ongoing support and guidance."
             }
           ].map((feature, index) => (
             <div key={index} className="bg-white p-6 sm:p-8 rounded-2xl shadow-lg border border-slate-200 text-center hover:shadow-xl transition-shadow duration-300">
@@ -232,10 +229,10 @@ export  function Courses() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8 sm:mb-12 lg:mb-16">
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-slate-900 mb-3 sm:mb-4">
-              AI Product Management Courses by MAANG Mentors
+              AI Accelerator Program by MAANG Mentors
             </h2>
             <p className="text-base sm:text-lg lg:text-xl text-slate-600 px-4">
-              Choose the right program to accelerate your AI product management career
+              Choose the right program to accelerate your PM product management career
             </p>
           </div>
 
@@ -331,7 +328,7 @@ export  function Courses() {
             Course Curriculum
           </h2>
           <p className="text-base sm:text-lg lg:text-xl text-slate-600 px-4">
-            A comprehensive journey to master AI product management through hands-on learning
+            A comprehensive journey to master PM product management through hands-on learning
           </p>
         </div>
 
@@ -362,7 +359,7 @@ export  function Courses() {
             Verifiable Certificate of Accomplishment
           </h2>
           <p className="text-base sm:text-lg lg:text-xl opacity-90 mb-6 sm:mb-10 max-w-3xl mx-auto px-4">
-            Upon completing the AI Product Management Fellowship, you'll receive a verifiable digital certificate that enhances your profile and credibility in the industry.
+            Upon completing the PM Product Management Fellowship, you'll receive a verifiable digital certificate that enhances your profile and credibility in the industry.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mt-6 sm:mt-10">

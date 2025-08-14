@@ -43,7 +43,7 @@ export default function Chat() {
       });
       setMessage("");
     } catch (error: any) {
-      toast.error(error.message || "Failed to send message");
+      toast.error(error.message || "FPMled to send message");
     } finally {
       setIsSending(false);
     }

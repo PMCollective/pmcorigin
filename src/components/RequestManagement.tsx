@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { useUser } from "@clerk/clerk-react";
-import { useQuery, useMutation } from "convex/react";
+import { useQuery, useMutation , useAction } from "convex/react";
 import { api } from "../../convex/_generated/api";
 import { toast } from "sonner";
 import { Check, X, ExternalLink, MessageCircle, Trash2, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+
 
 export default function RequestManagement() {
   const { user } = useUser();
@@ -24,23 +25,50 @@ export default function RequestManagement() {
 
   const respondToBuddyRequest = useMutation(api.buddyRequests.respondToBuddyRequest);
   const withdrawBuddyRequest = useMutation(api.buddyRequests.withdrawBuddyRequest);
+  const sendemail = useAction(api.buddyRequests.sendemail);
 
   const [processingRequest, setProcessingRequest] = useState<string | null>(null);
 
   const handleRespond = async (requestId: string, response: "accepted" | "rejected") => {
-    setProcessingRequest(requestId);
-    try {
-      await respondToBuddyRequest({
-        requestId: requestId as any,
-        response,
+  setProcessingRequest(requestId);
+
+  const request = incomingRequests?.find(r => r._id === requestId);
+    
+
+  try {
+    await respondToBuddyRequest({
+      requestId: requestId as any,
+      response,
+  
+    });
+    
+
+    // Find the request object to get sender's email and name
+    
+
+
+    if (response === "accepted" && request?.sender?.email) {
+      await sendemail({
+        to: request.sender.email,
+        subject: "Your buddy request was accepted!",
+        text: `Hi ${request.sender.name},
+
+Great news! ${user?.fullName || user?.username || "your buddy"} has accepted your buddy request.
+
+You can now connect and start your journey together. Feel free to reach out and say hello!
+
+Best wishes,
+The PM Collective Team`,
       });
-      toast.success(`Request ${response}!`);
-    } catch (error: any) {
-      toast.error(error.message || "Failed to respond to request");
-    } finally {
-      setProcessingRequest(null);
     }
-  };
+
+    toast.success(`Request ${response}!`);
+  } catch (error: any) {
+    toast.error(error.message || "FPMled to respond to request");
+  } finally {
+    setProcessingRequest(null);
+  }
+};
 
   const handleWithdraw = async (requestId: string) => {
     if (!user) return;
@@ -53,7 +81,7 @@ export default function RequestManagement() {
       });
       toast.success("Request withdrawn!");
     } catch (error: any) {
-      toast.error(error.message || "Failed to withdraw request");
+      toast.error(error.message || "FPMled to withdraw request");
     } finally {
       setProcessingRequest(null);
     }
@@ -221,9 +249,7 @@ export default function RequestManagement() {
                             <p className="text-sm text-gray-600">
                               {buddy.buddy?.experienceLevel} years • {buddy.buddy?.preparednessLevel}
                             </p>
-                            <p className="text-sm text-blue-600 mt-1">
-                              📞 {buddy.buddy?.phoneNumber}
-                            </p>
+                           
                           </div>
                           <a
                             href={buddy.buddy?.linkedinUrl}
