@@ -74,7 +74,7 @@ export default function ProfileSetup() {
       }
       navigate("/");
     } catch (error) {
-      toast.error("FPMled to save profile. Please try agPMn.");
+      toast.error("Failed to save profile. Please try again.");
       console.error(error);
     } finally {
       setIsSubmitting(false);

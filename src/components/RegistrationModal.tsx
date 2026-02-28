@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
+import {  useState } from "react";
 import { useMutation, useQuery, useAction } from "convex/react";
 import { api } from "../../convex/_generated/api";
-import { Id } from "../../convex/_generated/dataModel";
+import type { Id } from "../../convex/_generated/dataModel";
 
 const RegistrationModal = ({
   eventId,
@@ -70,6 +70,7 @@ const RegistrationModal = ({
           <p>You will be sent an email on the day of the event.</p>
           <button className="mt-4 text-blue-500" onClick={onClose}>
             Close
+            
           </button>
         </div>
       </div>

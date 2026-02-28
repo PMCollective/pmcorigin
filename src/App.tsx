@@ -43,6 +43,12 @@ import LegalFooter from "./components/LegalFooter";
 import Tos from "./components/Tos";
 import Privacy from "./components/Privacy";
 import Refund from "./components/Refund";
+
+// ADDED: SPA components
+import Courses from "./components/Courses";
+import JobPostings from "./components/JobPostings";
+import EventPage from "./components/EventPage";
+
 const OnlineStatusBadge = () => {
   const [isOnline, setIsOnline] = useState(navigator.onLine);
 
@@ -85,18 +91,18 @@ function AppContent() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Use internal SPA routes instead of external links
   const navigation = [
-  { name: 'Courses', href: 'https://aicollective.tech/courses', icon: BookOpen },
-  { name: 'Jobs', href: 'https://aicollective.tech/jobs', icon: Briefcase },
-  { name: 'Events', href: 'https://aicollective.tech/events', icon: Calendar },
-  { name: 'Buddy Finder', href: '/', icon: Users },
-];
-
+    { name: 'Courses', href: '/courses', icon: BookOpen },
+    { name: 'Jobs', href: '/jobs', icon: Briefcase },
+    { name: 'Events', href: '/events', icon: Calendar },
+    { name: 'Buddy Finder', href: '/', icon: Users },
+  ];
 
   const adminUrl = import.meta.env.VITE_ADMIN_URL;
   const adminUrlEvents = import.meta.env.VITE_ADMIN_URL_EVENTS;
 
-  const isActive = (path: string) => location.pathname === path; // Explicitly type path as string
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
@@ -129,48 +135,26 @@ function AppContent() {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-1">
               {navigation.map((item) => {
-  const IconComponent = item.icon;
-  const isExternal = item.href.startsWith("http");
-  const itemClasses = `group relative px-4 py-2 rounded-xl font-medium transition-all duration-200 ${
-    isActive(isExternal ? item.href.replace("https://aicollective.tech", "") : item.href)
-      ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
-      : 'text-slate-700 hover:text-blue-600 hover:bg-blue-50'
-  }`;
+                const IconComponent = item.icon;
+                const itemClasses = `group relative px-4 py-2 rounded-xl font-medium transition-all duration-200 ${
+                  isActive(item.href)
+                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
+                    : 'text-slate-700 hover:text-blue-600 hover:bg-blue-50'
+                }`;
 
-  // External link buttons
-  if (isExternal) {
-    return (
-      <a
-        key={item.name}
-        href={item.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={itemClasses}
-      >
-        <span className="flex items-center space-x-2">
-          <IconComponent size={16} className={isActive(item.href.replace("https://aicollective.tech", "")) ? 'text-white' : 'text-blue-600'} />
-          <span>{item.name}</span>
-          <ExternalLink size={14} className={isActive(item.href.replace("https://aicollective.tech", "")) ? 'text-white opacity-80' : 'text-blue-600 opacity-80'} />
-        </span>
-      </a>
-    );
-  }
-
-  // Internal SPA Link
-  return (
-    <Link
-      key={item.name}
-      to={item.href}
-      className={itemClasses}
-    >
-      <span className="flex items-center space-x-2">
-        <IconComponent size={16} className={isActive(item.href) ? 'text-white' : 'text-blue-600'} />
-        <span>{item.name}</span>
-      </span>
-    </Link>
-  );
-})}
-
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    className={itemClasses}
+                  >
+                    <span className="flex items-center space-x-2">
+                      <IconComponent size={16} className={isActive(item.href) ? 'text-white' : 'text-blue-600'} />
+                      <span>{item.name}</span>
+                    </span>
+                  </Link>
+                );
+              })}
             </nav>
 
             {/* User Actions */}
@@ -226,44 +210,25 @@ function AppContent() {
           <div className="md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-xl border-b border-slate-200 shadow-lg">
             <div className="px-4 py-3 space-y-2">
               {navigation.map((item) => {
-  const IconComponent = item.icon;
-  const isExternal = item.href.startsWith("http");
-  const baseClasses = `block px-4 py-3 rounded-xl font-medium transition-all flex items-center space-x-3 ${
-    isActive(isExternal ? item.href.replace("https://aicollective.tech", "") : item.href)
-      ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
-      : 'text-slate-700 hover:bg-blue-50'
-  }`;
+                const IconComponent = item.icon;
+                const baseClasses = `block px-4 py-3 rounded-xl font-medium transition-all flex items-center space-x-3 ${
+                  isActive(item.href)
+                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
+                    : 'text-slate-700 hover:bg-blue-50'
+                }`;
 
-  if (isExternal) {
-    return (
-      <a
-        key={item.name}
-        href={item.href}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={() => setIsMobileMenuOpen(false)}
-        className={baseClasses}
-      >
-        <IconComponent size={18} className={isActive(item.href.replace("https://aicollective.tech", "")) ? 'text-white' : 'text-blue-600'} />
-        <span>{item.name}</span>
-        <ExternalLink size={14} className={isActive(item.href.replace("https://aicollective.tech", "")) ? 'text-white opacity-80' : 'text-blue-600 opacity-80'} />
-      </a>
-    );
-  }
-
-  return (
-    <Link
-      key={item.name}
-      to={item.href}
-      onClick={() => setIsMobileMenuOpen(false)}
-      className={baseClasses}
-    >
-      <IconComponent size={18} className={isActive(item.href) ? 'text-white' : 'text-blue-600'} />
-      <span>{item.name}</span>
-    </Link>
-  );
-})}
-
+                return (
+                  <Link
+                    key={item.name}
+                    to={item.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={baseClasses}
+                  >
+                    <IconComponent size={18} className={isActive(item.href) ? 'text-white' : 'text-blue-600'} />
+                    <span>{item.name}</span>
+                  </Link>
+                );
+              })}
             </div>
           </div>
         )}
@@ -273,11 +238,10 @@ function AppContent() {
       <main className="pt-16 lg:pt-20 min-h-screen">
         <Routes>
           {/* Public Routes - Full Page Components */}
-          
           <Route path={adminUrl} element={<AdminLogin />} />
           <Route path={adminUrlEvents} element={<AdminDashboard />} />
 
-          {/* Home Route - Show Hero for signed out users, Dashboard for signed in */}
+          {/* Home Route */}
           <Route
             path="/"
             element={
@@ -369,7 +333,39 @@ function AppContent() {
             }
           />
 
-          {/* Protected Routes */}
+          {/* SPA routes for Courses / Jobs / Events */}
+          <Route
+            path="/courses"
+            element={
+              
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
+                  <Courses />
+                </div>
+              
+            }
+          />
+          <Route
+            path="/jobs"
+            element={
+              
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
+                  <JobPostings />
+                </div>
+              
+            }
+          />
+          <Route
+            path="/events"
+            element={
+             
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 lg:py-8">
+                  <EventPage />
+                </div>
+              
+            }
+          />
+
+          {/* Protected / App Routes */}
           <Route
             path="/profile-setup"
             element={
@@ -410,13 +406,18 @@ function AppContent() {
               </SignedIn>
             }
           />
+
+          {/* Legal pages */}
           <Route path="/terms" element={<Tos />} />
-  <Route path="/privacy" element={<Privacy />} />
-  <Route path="/refund" element={<Refund />} />
+          <Route path="/privacy" element={<Privacy />} />
+          <Route path="/refund" element={<Refund />} />
+
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
-      <LegalFooter/>
+
+      {/* Footer */}
+      <LegalFooter />
 
       <Toaster />
     </div>

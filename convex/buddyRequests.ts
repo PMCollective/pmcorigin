@@ -276,7 +276,7 @@ export const withdrawBuddyRequest = mutation({
 
 
 
-// Query: get all pending buddy requests
+//get all pending buddy requests
 export const getPendingBuddyRequests = query({
   handler: async (ctx) => {
     return await ctx.db
@@ -341,7 +341,7 @@ export const sendWeeklyPendingRequestEmails: Action = action({
           from: "PMC <no-reply@pmcollective.tech>",
           to: receiver.email,
           subject: "You have pending buddy requests!",
-          text: `Hi ${receiver.name},\n\nYou have ${count} pending buddy request${count > 1 ? "s" : ""} waiting for your response.\n\nPlease log in to your dashboard to view and respond to them.\n\nBest regards,\nYour Buddy System Team`,
+          text: `Hi ${receiver.name},\n\nYou have ${count} pending buddy request${count > 1 ? "s" : ""} waiting for your response.\n\nPlease log in to your dashboard to view and respond to them at \n pmcollective.tech .\n\nBest regards,\nYour Buddy System Team`,
         });
       }
     }

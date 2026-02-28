@@ -64,7 +64,7 @@ The PM Collective Team`,
 
     toast.success(`Request ${response}!`);
   } catch (error: any) {
-    toast.error(error.message || "FPMled to respond to request");
+    toast.error(error.message || "Failed to respond to request");
   } finally {
     setProcessingRequest(null);
   }
@@ -81,7 +81,7 @@ The PM Collective Team`,
       });
       toast.success("Request withdrawn!");
     } catch (error: any) {
-      toast.error(error.message || "FPMled to withdraw request");
+      toast.error(error.message || "Failed to withdraw request");
     } finally {
       setProcessingRequest(null);
     }

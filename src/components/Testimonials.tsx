@@ -212,7 +212,7 @@ const Testimonials = () => {
         
         <div 
           ref={containerRef}
-          className="testimonials-contPMner"
+          className="testimonials-container"
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleDragEnd}
@@ -241,7 +241,7 @@ const Testimonials = () => {
               ))
             )}
           </div>
-          <div><div/>
+          <div></div>
         </div>
       </div>
       

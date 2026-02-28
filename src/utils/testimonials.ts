@@ -26,7 +26,7 @@ export const testimonials = [
   {
     name: "Sumit Soni",
     title: "Senior Product Manager at Real (NASDAQ: REAX)",
-    quote: "AI Collective played an important part in my transition to a Senior Product Manager role. The structured thinking, problem solving, and focus on frameworks made all the difference.",
+    quote: "PM Collective played an important part in my transition to a Senior Product Manager role. The structured thinking, problem solving, and focus on frameworks made all the difference.",
     image: "https://media.licdn.com/dms/image/v2/D4D03AQEEAwXFqHoLKA/profile-displayphoto-shrink_800_800/B4DZZuhmoWHwAc-/0/1745611025381?e=1756944000&v=beta&t=lyH0A4fHnj0P8gE5vgd8oLmAsYLCqOXIYFRARSjty_U"
   },
   {
